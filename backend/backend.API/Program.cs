@@ -1,9 +1,17 @@
+using backend.Services.Implementations;
+using backend.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers();
+
+// Configuring the resources
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 var app = builder.Build();
 
